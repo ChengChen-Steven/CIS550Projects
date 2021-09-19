@@ -20,7 +20,7 @@ app.get('/people', routes.getAllPeople);
 
 /* ---- Part 2 (FindFriends) ---- */
 // TODO: (2) - Add route '/friends/:login' for the functionality of FindFriends page 
-app.get('/friends/:login', () => {}); // Hint: Replace () => {} with the appropriate route handler in routes.js.
+app.get('/friends/:login', routes.getFriends); // Hint: Replace () => {} with the appropriate route handler in routes.js.
 
 
 app.listen(8081, () => {

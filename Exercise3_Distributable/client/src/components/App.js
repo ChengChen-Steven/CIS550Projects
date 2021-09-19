@@ -28,8 +28,13 @@ export default class App extends React.Component {
 								<Dashboard />
 							)}
 						/>
-						{/* ---- Part 2 (FindFriends) ---- */}
-						{/* TODO (1) - Add a Route for the path "/FindFriends" */}
+						<Route
+							exact
+							path="/FindFriends"
+							render={() => (
+								<FindFriends />
+							)}
+						/>
 					</Switch>
 				</Router>
 			</div>

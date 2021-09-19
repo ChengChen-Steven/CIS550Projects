@@ -28,7 +28,12 @@ function getFriends(req, res) {
   
   // TODO: (3) - Edit query below
   var query = `
-    <INSERT QUERY HERE, using inputLogin>;
+    select F.friend, P.name
+    from Friends F 
+    join Person P 
+    on F.friend = P.login
+    where F.login LIKE '${inputLogin}'
+    ;
   `;
   connection.query(query, function(err, rows, fields) {
     if (err) console.log(err);
