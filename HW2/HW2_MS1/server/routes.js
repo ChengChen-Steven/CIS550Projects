@@ -40,7 +40,7 @@ async function jersey(req, res) {
 
     if (req.params.choice === 'number') {
         // TODO: TASK 1: inspect for issues and correct 
-        res.json({ message: `Hello, ${name}!`, lucky_number: jersey_number })
+        res.json({ message: `Hello, ${name}!`, jersey_number: jersey_number })
     } else if (req.params.choice === 'color') {
         var lucky_color_index = Math.floor(Math.random() * 2) + 1;
         // TODO: TASK 2: change this or any variables above to return only 'red' or 'blue' at random (go Quakers!)
