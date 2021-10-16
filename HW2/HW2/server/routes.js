@@ -69,8 +69,8 @@ async function all_matches(req, res) {
         // This is the case where page is defined.
         // The SQL schema has the attribute OverallRating, but modify it to match spec! 
         // TODO: query and return results here:
-        const pagesize = req.query.pagesize ? req.params.pagesize : 10
-        const offset_page_size = pagesize * (req.query.page - 1) 
+        var pagesize = req.query.pagesize ? req.params.pagesize : 10
+        var offset_page_size = pagesize * (req.query.page - 1) 
         var query = `
           SELECT MatchId, Date, Time, HomeTeam AS Home, AwayTeam AS Away, FullTimeGoalsH AS HomeGoals, FullTimeGoalsA AS AwayGoals    
           FROM Matches
@@ -113,8 +113,8 @@ async function all_matches(req, res) {
 async function all_players(req, res) {
     // TODO: TASK 5: implement and test, potentially writing your own (ungraded) tests
     if (req.query.page && !isNaN(req.query.page)) {
-        const pagesize = req.query.pagesize ? req.params.pagesize : 10
-        const offset_page_size = pagesize * (req.query.page - 1) 
+        var pagesize = req.query.pagesize ? req.params.pagesize : 10
+        var offset_page_size = pagesize * (req.query.page - 1) 
         var query = `
           SELECT PlayerId, Name, Nationality, OverallRating AS Rating, Potential, Club, Value
           FROM Players
@@ -254,8 +254,8 @@ async function search_matches(req, res) {
         var where_clause = ""
     }
     if (req.query.page && !isNaN(req.query.page)) {
-        const pagesize = req.query.pagesize ? req.params.pagesize : 10
-        const offset_page_size = pagesize * (req.query.page - 1)
+        var pagesize = req.query.pagesize ? req.params.pagesize : 10
+        var offset_page_size = pagesize * (req.query.page - 1)
         var query3 = " LIMIT " + pagesize + " OFFSET " + offset_page_size
         var query = query1 + where_clause + query2 + query3
         //res.json({results: query})
@@ -295,8 +295,8 @@ async function search_players(req, res) {
     var query2 = " ORDER BY Name "
 
     if (req.query.page && !isNaN(req.query.page)) {
-        const pagesize = req.query.pagesize ? req.params.pagesize : 10
-        const offset_page_size = pagesize * (req.query.page - 1)
+        var pagesize = req.query.pagesize ? req.params.pagesize : 10
+        var offset_page_size = pagesize * (req.query.page - 1)
         var query3 = " LIMIT " + pagesize + " OFFSET " + offset_page_size
         var query = query1 + cond4 + cond5 + cond6 + cond7 + cond1 + cond2 + cond3 + query2 + query3
         res.json({results: query})
